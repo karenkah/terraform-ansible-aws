@@ -1,7 +1,13 @@
 # terraform-ansible-aws
  Provisiona EC2, VPC, SUBNET, SECURITY_GROUP na AWS com Terraform. Instala pacotes e copia arquivos em linux/windows com Ansible.
 
-## Terraform: Provider AWS
+ ### Requisitos para projeto:
+ * Criar/ter conta na AWS
+ * Instalar e configurar AWS_CLI
+ * Instalar Terraform
+ 
+
+# Terraform: Provider AWS 
 * EC2 - Ubuntu host
 * EC2 - Ubuntu/Ansible controlador
 * EC2 - Windows Server host
@@ -9,8 +15,8 @@
 * SECURITY GROUP - associado nas instâncias Ubuntu
 * SECURITY GROUP - associado na instância Windows
 
-## Ansible:
-### No Windows host:
+# Ansible:
+## No Windows host:
 * Instala chocolatey
 * Instala nginx via chocolatey
 * Instala 7-zip via win_get_url/win_package
@@ -26,7 +32,7 @@ $file = "$env:temp\Install-WMF3Hotfix.ps1"
 powershell.exe -ExecutionPolicy ByPass -File $file -Verbose
 ```
 
-### No Ubuntu host:
+## No Ubuntu host:
 * Instala nginx via apt 
 * Inicia nginx (handler)
 * Copia arquivo local via copy
