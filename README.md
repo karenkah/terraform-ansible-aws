@@ -1,5 +1,5 @@
 # terraform-ansible-aws
- Provisiona EC2, VPC, SUBNET, SECURITY_GROUP na AWS com Terraform. Instala pacotes e copia arquivos em linux/windows com Ansible.
+ Provisiona EC2, VPC, SECURITY_GROUP na AWS com Terraform. Instala pacotes e copia arquivos em linux/windows com Ansible.
 
  ### Requisitos para projeto:
  * Criar/ter conta na AWS
@@ -11,7 +11,7 @@
 * EC2 - Ubuntu host
 * EC2 - Ubuntu/Ansible controlador
 * EC2 - Windows Server host
-* VPC e SUBNET - provisiona vpc/subnet publica e associa instâncias 
+* VPC - provisiona vpc/subnet e associa instâncias 
 * SECURITY GROUP - associado nas instâncias Ubuntu
 * SECURITY GROUP - associado na instância Windows
 
