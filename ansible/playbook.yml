@@ -1,0 +1,53 @@
+---
+- hosts: windows
+  tasks:
+  
+  - name: copiar arquivo
+    ansible.windows.win_copy:
+      src: /caminho/arquivo.txt
+      dest: C:\caminho\
+      remote_src: false
+
+  - name: instalar chocolatey
+    win_chocolatey:
+      name: procexp
+      state: present
+
+  - name: Instalar nginx
+    win_chocolatey:
+      name: nginx
+      state: latest
+
+  - name: Download 7-Zip pacote
+    win_get_url:
+      url: https://www.7-zip.org/a/7z1701-x64.msi
+      dest: C:\Program Files (x86)\7z.msi
+
+  - name: garante 7-Zip está instalado
+    win_package:
+      path: C:\Program Files (x86)\7z.msi
+      state: present
+
+
+- hosts: linux
+  handlers:
+  - name: start nginx
+    service:
+      name: nginx
+      state: present
+
+  tasks:
+    - name: Instalar nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: true
+      become: yes
+      notify:
+      - start nginx
+
+    - name: copiar arquivo
+      copy:
+        src: /caminho/arquivo.txt
+        dest: /caminho/arquivo.txt
+      
