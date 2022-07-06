@@ -30,12 +30,6 @@
 
 
 - hosts: linux
-  handlers:
-  - name: start nginx
-    service:
-      name: nginx
-      state: present
-
   tasks:
     - name: Instalar nginx
       apt:
@@ -43,8 +37,6 @@
         state: present
         update_cache: true
       become: yes
-      notify:
-      - start nginx
 
     - name: copiar arquivo
       copy:
