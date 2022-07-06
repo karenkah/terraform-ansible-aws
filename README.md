@@ -16,7 +16,7 @@
 * Instala nginx via chocolatey
 * Instala 7-zip via win_get_url/win_package
 * Copia arquivo local via win_copy
-#### Obs: Foi preciso rodar o script ConfigureRemotingForAnsible.ps1 no powershell:
+#### Obs: É preciso rodar o script ConfigureRemotingForAnsible.ps1 no powershell
 ```
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $url = "https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
