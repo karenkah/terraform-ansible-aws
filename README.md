@@ -16,18 +16,15 @@
 * Instala nginx via chocolatey
 * Instala 7-zip via win_get_url/win_package
 * Copia arquivo local via win_copy
-
-#### Obs: É necessário rodar o script Install-WMF3Hotfix.ps1 no powershell para corrigir bug de memória WinRM. [(Documentação Ansible)](https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html#winrm-setup)
+#### Obs: Foi preciso rodar o script ConfigureRemotingForAnsible.ps1 no powershell:
 ```
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-$url = "https://raw.githubusercontent.com/jborean93/ansible-windows/master/scripts/Install-WMF3Hotfix.ps1"
-$file = "$env:temp\Install-WMF3Hotfix.ps1"
-
+$url = "https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
+$file = "$env:temp\ConfigureRemotingForAnsible.ps1"
 (New-Object -TypeName System.Net.WebClient).DownloadFile($url, $file)
-powershell.exe -ExecutionPolicy ByPass -File $file -Verbose
+powershell.exe -ExecutionPolicy ByPass -File $file
 ```
 
 ### No Ubuntu host:
 * Instala nginx via apt 
-* Inicia nginx (handler)
 * Copia arquivo local via copy
