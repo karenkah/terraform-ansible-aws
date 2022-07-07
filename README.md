@@ -11,7 +11,7 @@
 * SECURITY GROUP - associado na instância Windows
 
 ## Ansible:
-###  No Windows host:
+###  Windows host:
 * Instala chocolatey
 * Instala nginx via chocolatey
 * Instala 7-zip via win_get_url/win_package
@@ -25,6 +25,6 @@ $file = "$env:temp\ConfigureRemotingForAnsible.ps1"
 powershell.exe -ExecutionPolicy ByPass -File $file
 ```
 
-###  No Ubuntu host:
+###  Ubuntu host:
 * Instala nginx via apt 
 * Copia arquivo local via copy
